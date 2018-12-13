@@ -11,11 +11,11 @@ For enabling contracts in IDE you should install some IDEA plugins:
 2. Core contracts [plugin](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1818249:id/kotlin-compiler-1.3.30-dev-162.zip!/kotlinc/lib/kotlin-contracts-plugin.jar)
 3. Contracts subplugins [plugin](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1823733:id/kotlin-compiler-1.3.30-dev-162.zip!/kotlinc/lib/kotlin-contracts-compiler-subplugins.jar)
 
-For enabling contracts in compiler, you should configure you _build.gradle_ file as follows in [sample](build.gradle)
+For enabling contracts in compiler, you should configure your _build.gradle_ and _settings.gradle _ files as follows in sample([build.gradle](build.gradle), [settings.gradle](settings.gradle)).
 
 ## Implemented contracts
 
-At now there is four different types of contracts are implemented:
+By now there is four different types of contracts are implemented:
 - Checked exceptions ([wiki](https://github.com/demiurg906/kotlin/wiki/05.Implemented_cases#checked-exceptions), [samples](src/main/kotlin/samples/CheckedExceptions.kt))
 - Safe builders ([wiki](https://github.com/demiurg906/kotlin/wiki/05.Implemented_cases#transactions), [samples](src/main/kotlin/samples/SafeBuilders.kt))
 - Transactions ([wiki](https://github.com/demiurg906/kotlin/wiki/05.Implemented_cases#dsl-marker), [samples](src/main/kotlin/samples/Transactions.kt))
@@ -23,7 +23,7 @@ At now there is four different types of contracts are implemented:
 
 ## Actual restrictions
 
-Contextual contracts is a prototype and it contains some restrictions (that not described in wiki):
+Contextual contracts is a prototype and it contains some restrictions (they are not described in wiki):
 
 #### Generics
 
@@ -37,11 +37,11 @@ fun runCatching<T : Throwable>(block: () -> Unit) {
 }
 ```
 
-Most likely that feature will be able in near future.
+Most likely this feature will be able in near future.
 
 #### DSL and Instance duality
 
-Some contracts cases (transactions and safe builders) can be used in two ways:
+Some contracts cases (_transactions_ and _safe builders_) could be used in two ways:
 
 **DSL style:**
 ```kotlin
@@ -64,7 +64,7 @@ fun foo(): Foo {
     val builder = Builder()
     builder.setX(1)
     builder.setY(2)
-    builder.build()
+    return builder.build()
 }
 ```
 
@@ -72,7 +72,7 @@ At this moment is allowed:
 - _DSL style_ for _safe builders_ contracts
 - _Instance style_ for _transactions_ contracts
 
-In near future both styles will be allowed for both types of contracts, but with one restriction: you can you only one of styles and can not mix them.
+In near future both styles will be allowed for both types of contracts, but with one restriction: you can use only one style and can not mix them.
 
 #### Usage of functions with extension lambdas
 
