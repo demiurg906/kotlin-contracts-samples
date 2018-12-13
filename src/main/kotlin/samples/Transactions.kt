@@ -21,9 +21,8 @@ import kotlin.contracts.contract
  *  Note: aliasing is not supported yet (see [aliasingTest])
  *  Note: using contracts on transaction dsl (like builders)
  *    will be released soon (see Readme)
- *  IMPORTANT: don't use transactions contract with extension lambdas,
- *    it crashes compiler (will be fixed very soon)
- *    (see [transactionWith] and Readme)
+ *  Note: don't use transactions contract with extension lambdas,
+ *    it not supported yet (see [transactionWith] and Readme)
  */
 @ExperimentalContracts
 class Transaction {
@@ -127,9 +126,9 @@ fun transactionWith() {
     val transaction = Transaction()
 
     transaction.start()
-    // DON'T DO THAT!
-//    with (transaction) {
-//        commit()
-//    }
-    transaction.commit()
+    // Not supported
+    with (transaction) {
+        commit()
+        setData() // should be warning
+    }
 }

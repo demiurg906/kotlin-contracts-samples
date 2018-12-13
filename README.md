@@ -6,10 +6,10 @@ This repository provides samples of using new feature of kotlin contracts system
 
 For enabling contracts in IDE you should install some IDEA plugins:
 1. Forked version of Kotlin plugin
-    - [IDEA 2018.2](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1818249:id/kotlin-plugin-1.3.30-dev-86-IJ2018.2-1.zip)
-    - [IDEA 2018.3](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1818249:id/kotlin-plugin-1.3.30-dev-86-IJ2018.3-1.zip)
-2. Core contracts [plugin](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1818249:id/kotlin-compiler-1.3.30-dev-86.zip!/kotlinc/lib/kotlin-contracts-plugin.jar)
-3. Contracts subplugins [plugin](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1818249:id/kotlin-compiler-1.3.30-dev-86.zip!/kotlinc/lib/kotlin-contracts-compiler-subplugins.jar)
+    - [IDEA 2018.2](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1818249:id/kotlin-plugin-1.3.30-dev-162-IJ2018.2-1.zip)
+    - [IDEA 2018.3](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1818249:id/kotlin-plugin-1.3.30-dev-162-IJ2018.3-1.zip)
+2. Core contracts [plugin](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1818249:id/kotlin-compiler-1.3.30-dev-162.zip!/kotlinc/lib/kotlin-contracts-plugin.jar)
+3. Contracts subplugins [plugin](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1823733:id/kotlin-compiler-1.3.30-dev-162.zip!/kotlinc/lib/kotlin-contracts-compiler-subplugins.jar)
 
 For enabling contracts in compiler, you should configure you _build.gradle_ file as follows in [sample](build.gradle)
 
@@ -76,7 +76,7 @@ In near future both styles will be allowed for both types of contracts, but with
 
 #### Usage of functions with extension lambdas
 
-Usage of functions with extension lambdas (like `with`) in _Instance style_ is not supported and crashes the compiler at current moment (crash will be fixed very soon), so for correct work do not use that functions.
+Usage of functions with extension lambdas (like `with`) in _Instance style_ is not supported, so for correct work do not use that functions.
 
 **Example of bad code:**
 ```kotlin
