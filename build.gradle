@@ -1,0 +1,98 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3-SNAPSHOT")
+    }
+}
+
+apply plugin: 'kotlin'
+
+group 'kotlin.contracts.samples'
+version '1.0'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+/*
+ * This configurations used for configuring contracts
+ */
+configurations {
+    // configuration for package with core contract plugin
+    kotlinContracts
+    // configuration for packages with contracts subplugins
+    contractPlugin
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    
+    // package with core contextual contracts dsl
+    compile "org.jetbrains.kotlin:kotlin-contracts-dsl:1.3-SNAPSHOT"
+    
+    // package with contracts subplugin dsl
+    compile "org.jetbrains.kotlin:kotlin-contracts-subplugins-dsl:1.3-SNAPSHOT"
+    // compile "another contracts subplugin dsl"
+
+    kotlinContracts "org.jetbrains.kotlin:kotlin-contracts:1.3-SNAPSHOT"
+    contractPlugin "org.jetbrains.kotlin:kotlin-contracts-subplugins:1.3-SNAPSHOT"
+    // contractPlugin "another contracts subplugin"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+
+    /*
+     * This is a magic that registers contracts plugins in compiler
+     */
+    doFirst {
+        def contractPlugin = configurations.kotlinContracts
+        for (file in contractPlugin.asCollection()) {
+            def dep = contractPlugin.dependencies.first()
+            def path = file.absolutePath
+            if (path.endsWith("${dep.name}-${dep.version}.jar")) {
+                kotlinOptions.freeCompilerArgs += ['-XXLanguage:+ContextualEffects', "-Xplugin=${path}"]
+            }
+        }
+
+        def subplugins = configurations.contractPlugin
+        for (file in subplugins.asCollection()) {
+            def path = file.absolutePath
+            for (dep in subplugins.dependencies) {
+                if (path.endsWith("${dep.name}-${dep.version}.jar")) {
+                    kotlinOptions.freeCompilerArgs += ['-P', "plugin:org.jetbrains.kotlin.contracts:contract=${path}"]
+                }
+            }
+        }
+    }
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+
+    doFirst {
+        def contractPlugin = configurations.kotlinContracts
+        for (file in contractPlugin.asCollection()) {
+            def dep = contractPlugin.dependencies.first()
+            def path = file.absolutePath
+            if (path.endsWith("${dep.name}-${dep.version}.jar")) {
+                kotlinOptions.freeCompilerArgs += ['-XXLanguage:+ContextualEffects', "-Xplugin=${path}"]
+            }
+        }
+
+        def subplugins = configurations.contractPlugin
+        for (file in subplugins.asCollection()) {
+            def path = file.absolutePath
+            for (dep in subplugins.dependencies) {
+                if (path.endsWith("${dep.name}-${dep.version}.jar")) {
+                    kotlinOptions.freeCompilerArgs += ['-P', "plugin:org.jetbrains.kotlin.contracts:contract=${path}"]
+                }
+            }
+        }
+    }
+}
+
