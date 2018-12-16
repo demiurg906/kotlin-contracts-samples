@@ -1,8 +1,9 @@
 pluginManagement {
     repositories {
-        mavenLocal()
         mavenCentral()
+        mavenLocal()
         maven { url 'https://plugins.gradle.org/m2/' }
+        maven { url "https://dl.bintray.com/kotlin/kotlin-dev" }
     }
 }
 rootProject.name = 'kotlin-contracts-samples'
