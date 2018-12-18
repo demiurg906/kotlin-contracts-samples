@@ -6,12 +6,12 @@ This repository provides samples of using new feature of kotlin contracts system
 
 For enabling contracts in IDE you should install some IDEA plugins:
 1. Forked version of Kotlin plugin
-    - [IDEA 2018.2](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1818249:id/kotlin-plugin-1.3.30-dev-162-IJ2018.2-1.zip)
-    - [IDEA 2018.3](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1818249:id/kotlin-plugin-1.3.30-dev-162-IJ2018.3-1.zip)
-2. Core contracts [plugin](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1818249:id/kotlin-compiler-1.3.30-dev-162.zip!/kotlinc/lib/kotlin-contracts-plugin.jar)
-3. Contracts subplugins [plugin](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1823733:id/kotlin-compiler-1.3.30-dev-162.zip!/kotlinc/lib/kotlin-contracts-compiler-subplugins.jar)
+    - [IDEA 2018.2](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1818249:id/kotlin-plugin-1.3.30-dev-245-IJ2018.2-1.zip)
+    - [IDEA 2018.3](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1818249:id/kotlin-plugin-1.3.30-dev-245-IJ2018.3-1.zip)
+2. Core contracts [plugin](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1833129:id/kotlin-plugin-1.3.30-dev-245-IJ2018.2-1.zip!/Kotlin/lib/kotlin-contracts-plugin.jar)
+3. Contracts subplugins [plugin](https://teamcity.jetbrains.com/repository/download/Kotlin_dev_CompilerAllPlugins/1823733:id/kotlin-compiler-1.3.30-dev-245.zip!/kotlinc/lib/kotlin-contracts-compiler-subplugins.jar)
 
-For enabling contracts in compiler, you should configure your _build.gradle_ and _settings.gradle _ files as follows in sample([build.gradle](build.gradle), [settings.gradle](settings.gradle)).
+For enabling contracts in compiler, you should configure your _build.gradle_ and _settings.gradle_ files as follows in sample([build.gradle](build.gradle), [settings.gradle](settings.gradle)).
 
 ## Implemented contracts
 

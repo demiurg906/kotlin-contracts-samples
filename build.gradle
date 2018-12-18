@@ -1,10 +1,8 @@
 buildscript {
-//    ext.kotlinVersion =  '1.3-SNAPSHOT'
-    ext.kotlinVersion =  '1.3.30-dev-162'
+    ext.kotlinVersion =  '1.3.30-dev-245'
 
     repositories {
         mavenCentral()
-        mavenLocal()
         maven { url "https://dl.bintray.com/kotlin/kotlin-dev" }
     }
 
@@ -20,7 +18,6 @@ version '1.0'
 
 repositories {
     mavenCentral()
-    mavenLocal()
     maven { url "https://dl.bintray.com/kotlin/kotlin-dev" }
 }
 
@@ -74,6 +71,8 @@ compileKotlin {
                 }
             }
         }
+        
+        println(kotlinOptions.freeCompilerArgs)
     }
 }
 compileTestKotlin {
