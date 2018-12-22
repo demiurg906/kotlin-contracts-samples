@@ -1,6 +1,8 @@
 # kotlin-contracts-samples
 
-This repository provides samples of using new feature of kotlin contracts system -- contextual contracts (in develop). On [wiki](https://github.com/demiurg906/kotlin-contracts-samples/wiki) you can examine detailed description of that system (in russian).
+This repository provides samples of using prototype of new feature of kotlin contracts system -- contextual contracts (in develop). On [wiki](https://github.com/demiurg906/kotlin-contracts-samples/wiki) you can examine detailed description of that system (in russian).
+
+This is not final implementation and there is no guarantees that this feature will be supported in released Koltin compiler.
 
 ## Installation
 
